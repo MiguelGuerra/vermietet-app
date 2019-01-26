@@ -6,7 +6,7 @@
 
   <div class="side-bar">
     <button>Invoice Information</button>
-    <button [disabled]="retrieving">Payments</button>
+    <button [disabled]="!retrieving">Payments</button>
   </div>
 
   <div class="content">

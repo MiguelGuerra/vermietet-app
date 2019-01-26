@@ -29,19 +29,17 @@
     button {
         width: 100%;
         text-align: left;
-        cursor: pointer;
         height: 10%;
         font-weight: 600;
         color: gray;
         padding-left: 20px;
-        &:hover {
+        &:hover:enabled {
             background-color: gainsboro;
             color: black;
+            cursor: pointer;
         }
-        &:disabled {
-            &:hover {
-                cursor: unset;
-            }
+        &:disabled{
+            opacity: .5;
         }
     }
 }
