@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container wrapper-account-list">
   <div class="account-item" *ngFor="let account of accounts">
     <span>
       {{account.Date |  date:'MM-dd-yyyy'}}
     </span>
     <span>
-      RENT {{account.Subject}}
+      Rent {{account.Subject}}
     </span>
     <span>
       {{account.Amount}} EUR
@@ -12,8 +12,10 @@
     <span>
       {{account.Iban}}
     </span>
-    <button class="btn btn-sm btn-info" routerLink="/edit-invoice/{{account.Id}}">Edit</button>
-    <button class="btn btn-sm btn-danger" (click)="invoiceService.removeInvoice(account)">Delete</button>
+    <div class="button-wrapper">
+        <button class="btn btn-sm btn-info" routerLink="/edit-invoice/{{account.Id}}">Edit</button>
+        <button class="btn btn-sm btn-danger" (click)="invoiceService.removeInvoice(account)">Delete</button>    
+    </div>
   </div>
 </div>
 

@@ -1,33 +1,39 @@
 <div class="wrapper">
   <div class="top-bar">
-    <p>Invoice dialog</p>
+    <h3>Add invoice dialog</h3>
     <button type="button" class="btn close" routerLink="">X</button>
   </div>
 
   <div class="side-bar">
     <button>Invoice Information</button>
-    <button [disabled]="!retrieving">Payments</button>
+    <button [disabled]="retrieving">Payments</button>
   </div>
 
   <div class="content">
-    <label for="Date">Date</label>
-    <input type="date" id="Date" [(ngModel)]="date">
-
-
-    <label for="Subject">Subject</label>
-    <input type="text" [(ngModel)]="subject">
-
-
-    <div class="custom-control custom-switch">
-      <input type="checkbox" class="custom-control-input" id="Retrieving" [(ngModel)]="retrieving">
-      <label class="custom-control-label" for="Retrieving">Retrieve amount from bank account</label>
+      <div class="form-wrapper">
+        <div class="item-div">
+          <label for="Date">Date</label>
+          <input type="date" id="Date" [(ngModel)]="date">
+        </div>
+  
+        <div class="item-div">
+          <label for="Subject">Subject</label>
+          <input type="text" [(ngModel)]="subject">
+        </div>
+  
+        <div class="custom-control custom-switch item-div">
+          <input type="checkbox" class="custom-control-input" id="Retrieving" [(ngModel)]="retrieving">
+          <label class="custom-control-label" for="Retrieving">Retrieve amount from bank account</label>
+        </div>
+  
+        <div class="item-div">
+          <label for="Amount">Amount</label>
+          <input type="number" id="Amount" [(ngModel)]="amount">
+        </div>
+  
+        <button (click)="submit()" class="btn btn-primary">Done</button>
+      </div>
     </div>
-
-
-    <label for="Amount">Amount</label>
-    <input type="number" id="Amount" [(ngModel)]="amount">
-
-    <button (click)="submit()">Done</button>
-  </div>
+  
 
 </div>
