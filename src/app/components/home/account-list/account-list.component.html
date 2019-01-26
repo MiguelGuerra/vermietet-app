@@ -1,18 +1,19 @@
 <div class="container">
   <div class="account-item" *ngFor="let account of accounts">
     <span>
-      {{account.data}}
+      {{account.Date |  date:'MM-dd-yyyy'}}
     </span>
     <span>
-      RENT {{account.rent}}
+      RENT {{account.Subject}}
     </span>
     <span>
-      {{account.amount}} EUR
+      {{account.Amount}} EUR
     </span>
     <span>
-      {{account.iban}}
+      {{account.Iban}}
     </span>
     <button class="btn btn-sm btn-info">Edit</button>
     <button class="btn btn-sm btn-danger">Delete</button>
   </div>
 </div>
+
