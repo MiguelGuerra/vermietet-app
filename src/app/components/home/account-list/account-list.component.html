@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="account-item" *ngFor="let account of accounts">
+    <span>
+      {{account.data}}
+    </span>
+    <span>
+      RENT {{account.rent}}
+    </span>
+    <span>
+      {{account.amount}} EUR
+    </span>
+    <span>
+      {{account.iban}}
+    </span>
+    <button class="btn btn-sm btn-info">Edit</button>
+    <button class="btn btn-sm btn-danger">Delete</button>
+  </div>
+</div>
