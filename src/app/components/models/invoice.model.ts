@@ -4,5 +4,12 @@ export class InvoiceItem {
     Retrieving: boolean;
     Amount: number;
     Iban?: string;
-    Id?: number;
+    Id: number;
+}
+
+export class NewInvoiceItem {
+    Date: Date;
+    Subject: string;
+    Retrieving: boolean;
+    Amount: number;
 }

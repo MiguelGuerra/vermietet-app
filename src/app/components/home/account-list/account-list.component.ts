@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InvoiceItem } from '../../models/invoice.model';
+import { InvoiceService } from 'src/app/_services/invoice.service';
 
 @Component({
   selector: 'app-account-list',
@@ -11,9 +12,10 @@ export class AccountListComponent implements OnInit {
   accounts: InvoiceItem[];
 
 
-  constructor() { }
+  constructor(private invoiceService: InvoiceService) { }
 
   ngOnInit() {
+    this.accounts = this.invoiceService.getInvoiceList();
   }
 
 }

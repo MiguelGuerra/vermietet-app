@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { InvoiceItem } from '../models/invoice.model';
+import { InvoiceItem, NewInvoiceItem } from '../../models/invoice.model';
+import { InvoiceService } from 'src/app/_services/invoice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-invoice',
@@ -14,18 +16,22 @@ export class AddInvoiceComponent implements OnInit {
   amount: number;
 
 
-  constructor() { }
+  constructor(private router: Router, private invoiceService: InvoiceService) { }
 
   ngOnInit() {
   }
 
   submit() {
-    const newInvoice: InvoiceItem = {
+    const newInvoice: NewInvoiceItem = {
       Date : this.date,
       Subject : this.subject,
       Retrieving : this.retrieving,
       Amount : this.amount
     };
+
+    this.invoiceService.addInvoice(newInvoice);
+
+    this.router.navigate(['']);
   }
 
 }

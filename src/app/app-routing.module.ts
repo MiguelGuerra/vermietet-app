@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 import { HomeComponent } from './components/home/home.component';
-import { AddInvoiceComponent } from './components/add-invoice/add-invoice.component';
+import { AddInvoiceComponent } from './components/home/add-invoice/add-invoice.component';
+import { EditInvoiceComponent } from './components/home/edit-invoice/edit-invoice.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'add-invoice',
     component: AddInvoiceComponent
+  },
+  {
+    path: 'edit-invoice/:id',
+    component: EditInvoiceComponent
   }
 ];
 

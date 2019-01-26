@@ -12,8 +12,8 @@
     <span>
       {{account.Iban}}
     </span>
-    <button class="btn btn-sm btn-info">Edit</button>
-    <button class="btn btn-sm btn-danger">Delete</button>
+    <button class="btn btn-sm btn-info" routerLink="/edit-invoice/{{account.Id}}">Edit</button>
+    <button class="btn btn-sm btn-danger" (click)="invoiceService.removeInvoice(account)">Delete</button>
   </div>
 </div>
 

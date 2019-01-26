@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { InvoiceItem } from '../components/models/invoice.model';
+import { InvoiceItem, NewInvoiceItem } from '../components/models/invoice.model';
 
 @Injectable({
   providedIn: 'root'
@@ -42,18 +42,45 @@ export class InvoiceService {
   }
 
 
-  addInvoice(newInvoice) {
+  addInvoice(newInvoice: NewInvoiceItem) {
     // dummy service
-    newInvoice.Id = this.invoiceList.length + 1;
-    this.invoiceList.push(newInvoice);
+    const newInvoiceAux: InvoiceItem = {
+      Date: newInvoice.Date,
+      Subject: newInvoice.Subject,
+      Retrieving: newInvoice.Retrieving,
+      Amount: newInvoice.Amount,
+      Id: this.invoiceList.length + 1
+    };
+    this.invoiceList.push(newInvoiceAux);
   }
 
-  removeInvoice(invoiceToRemove) {
+  editInvoice(editedInvoice: InvoiceItem) {
+    this.invoiceList.forEach(invoice => {
+      if (invoice.Id === editedInvoice.Id) {
+        const invoiceId: number = invoice.Id;
+        invoice = editedInvoice;
+        invoice.Id = invoiceId;
+      }
+    });
+  }
+
+  removeInvoice(invoiceToRemove: InvoiceItem) {
     this.invoiceList.forEach((invoice, index) => {
-      if (invoice.Id === invoiceToRemove.id) {
+      if (invoice.Id === invoiceToRemove.Id) {
         this.invoiceList.splice(index, 1);
       }
     });
   }
 
+  getInvoice(invoiceId: number) {
+    let invoiceAux: InvoiceItem;
+    this.invoiceList.forEach(invoice => {
+      if (invoice.Id == invoiceId) {
+        invoiceAux = invoice;
+      }
+    });
+
+    return invoiceAux;
+  }
 }
+
