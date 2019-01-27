@@ -13,7 +13,11 @@ export class EditInvoiceComponent implements OnInit {
   invoice: InvoiceItem;
   invoiceId: number;
 
-  constructor(private router: Router, private invoiceService: InvoiceService, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private router: Router,
+    private invoiceService: InvoiceService,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
@@ -36,6 +40,13 @@ export class EditInvoiceComponent implements OnInit {
     this.invoiceService.editInvoice(editedInvoice);
 
     this.router.navigate(['']);
+  }
+
+  formatDate(date) {
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    return year + '-' + month + '-' + day;
   }
 
 }

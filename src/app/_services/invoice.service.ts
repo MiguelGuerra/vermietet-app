@@ -8,12 +8,20 @@ export class InvoiceService {
 
   invoiceList: InvoiceItem[] = [
     {
-      Date: new Date('2018-02-12'),
+      Date: new Date('2018-02-12T00:00:00'),
       Subject: 'January',
       Retrieving: true,
       Amount: 500,
       Iban: 'PT1234567765434567',
-      Id: 1
+      Id: 100000
+    },
+    {
+      Date: new Date('2018-02-12T00:00:00'),
+      Subject: 'January',
+      Retrieving: true,
+      Amount: 500,
+      Iban: 'PT1234567765434567',
+      Id: 200000
     },
     {
       Date: new Date('2018-02-12'),
@@ -21,15 +29,7 @@ export class InvoiceService {
       Retrieving: true,
       Amount: 500,
       Iban: 'PT1234567765434567',
-      Id: 2
-    },
-    {
-      Date: new Date('2018-02-12'),
-      Subject: 'January',
-      Retrieving: true,
-      Amount: 500,
-      Iban: 'PT1234567765434567',
-      Id: 3
+      Id: 300000
     }
   ];
 
@@ -49,7 +49,7 @@ export class InvoiceService {
       Subject: newInvoice.Subject,
       Retrieving: newInvoice.Retrieving,
       Amount: newInvoice.Amount,
-      Id: this.invoiceList.length + 1
+      Id: Date.now()
     };
     this.invoiceList.push(newInvoiceAux);
   }

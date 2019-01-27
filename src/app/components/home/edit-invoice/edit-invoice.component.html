@@ -13,7 +13,7 @@
     <div class="form-wrapper">
       <div class="item-div">
         <label for="Date">Date</label>
-        <input type="date" id="Date" [(ngModel)]="invoice.Date">
+        <input type="date" id="Date" [value]="invoice.Date | date: 'yyyy-MM-dd'">
       </div>
 
 

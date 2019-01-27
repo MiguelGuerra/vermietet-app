@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-invoice.component.scss']
 })
 export class AddInvoiceComponent implements OnInit {
-
-  retrieving: boolean;
+  btnText = 'Done';
+  retrieving = false;
   date: Date;
   subject: string;
   amount: number;
@@ -32,6 +32,15 @@ export class AddInvoiceComponent implements OnInit {
     this.invoiceService.addInvoice(newInvoice);
 
     this.router.navigate(['']);
+  }
+
+  isValid() {
+    if (this.retrieving) {
+      this.btnText = 'Next';
+      return false;
+    }
+    this.btnText = 'Done';
+    return this.amount == null;
   }
 
 }
